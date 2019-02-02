@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		511CEA6E2205A2140090A8E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA6D2205A2140090A8E3 /* AppDelegate.swift */; };
+		511CEA702205A2140090A8E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA6F2205A2140090A8E3 /* ViewController.swift */; };
+		511CEA732205A2140090A8E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA712205A2140090A8E3 /* Main.storyboard */; };
+		511CEA752205A2180090A8E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA742205A2180090A8E3 /* Assets.xcassets */; };
+		511CEA782205A2180090A8E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */; };
+		511CEA832205A2190090A8E3 /* SplitteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA822205A2190090A8E3 /* SplitteryTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		511CEA7F2205A2190090A8E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 511CEA622205A2140090A8E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 511CEA692205A2140090A8E3;
+			remoteInfo = Splittery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		511CEA6A2205A2140090A8E3 /* Splittery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splittery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		511CEA6D2205A2140090A8E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		511CEA6F2205A2140090A8E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		511CEA722205A2140090A8E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		511CEA742205A2180090A8E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		511CEA772205A2180090A8E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		511CEA792205A2180090A8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		511CEA7E2205A2190090A8E3 /* SplitteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		511CEA822205A2190090A8E3 /* SplitteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitteryTests.swift; sourceTree = "<group>"; };
+		511CEA842205A2190090A8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		511CEA672205A2140090A8E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		511CEA7B2205A2190090A8E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		511CEA612205A2140090A8E3 = {
+			isa = PBXGroup;
+			children = (
+				511CEA6C2205A2140090A8E3 /* Splittery */,
+				511CEA812205A2190090A8E3 /* SplitteryTests */,
+				511CEA6B2205A2140090A8E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		511CEA6B2205A2140090A8E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				511CEA6A2205A2140090A8E3 /* Splittery.app */,
+				511CEA7E2205A2190090A8E3 /* SplitteryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		511CEA6C2205A2140090A8E3 /* Splittery */ = {
+			isa = PBXGroup;
+			children = (
+				511CEA6D2205A2140090A8E3 /* AppDelegate.swift */,
+				511CEA6F2205A2140090A8E3 /* ViewController.swift */,
+				511CEA712205A2140090A8E3 /* Main.storyboard */,
+				511CEA742205A2180090A8E3 /* Assets.xcassets */,
+				511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */,
+				511CEA792205A2180090A8E3 /* Info.plist */,
+			);
+			path = Splittery;
+			sourceTree = "<group>";
+		};
+		511CEA812205A2190090A8E3 /* SplitteryTests */ = {
+			isa = PBXGroup;
+			children = (
+				511CEA822205A2190090A8E3 /* SplitteryTests.swift */,
+				511CEA842205A2190090A8E3 /* Info.plist */,
+			);
+			path = SplitteryTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		511CEA692205A2140090A8E3 /* Splittery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 511CEA872205A2190090A8E3 /* Build configuration list for PBXNativeTarget "Splittery" */;
+			buildPhases = (
+				511CEA662205A2140090A8E3 /* Sources */,
+				511CEA672205A2140090A8E3 /* Frameworks */,
+				511CEA682205A2140090A8E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Splittery;
+			productName = Splittery;
+			productReference = 511CEA6A2205A2140090A8E3 /* Splittery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		511CEA7D2205A2190090A8E3 /* SplitteryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 511CEA8A2205A2190090A8E3 /* Build configuration list for PBXNativeTarget "SplitteryTests" */;
+			buildPhases = (
+				511CEA7A2205A2190090A8E3 /* Sources */,
+				511CEA7B2205A2190090A8E3 /* Frameworks */,
+				511CEA7C2205A2190090A8E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				511CEA802205A2190090A8E3 /* PBXTargetDependency */,
+			);
+			name = SplitteryTests;
+			productName = SplitteryTests;
+			productReference = 511CEA7E2205A2190090A8E3 /* SplitteryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		511CEA622205A2140090A8E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Maxim Bystrov";
+				TargetAttributes = {
+					511CEA692205A2140090A8E3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					511CEA7D2205A2190090A8E3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 511CEA692205A2140090A8E3;
+					};
+				};
+			};
+			buildConfigurationList = 511CEA652205A2140090A8E3 /* Build configuration list for PBXProject "Splittery" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 511CEA612205A2140090A8E3;
+			productRefGroup = 511CEA6B2205A2140090A8E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				511CEA692205A2140090A8E3 /* Splittery */,
+				511CEA7D2205A2190090A8E3 /* SplitteryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		511CEA682205A2140090A8E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511CEA782205A2180090A8E3 /* LaunchScreen.storyboard in Resources */,
+				511CEA752205A2180090A8E3 /* Assets.xcassets in Resources */,
+				511CEA732205A2140090A8E3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		511CEA7C2205A2190090A8E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		511CEA662205A2140090A8E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511CEA702205A2140090A8E3 /* ViewController.swift in Sources */,
+				511CEA6E2205A2140090A8E3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		511CEA7A2205A2190090A8E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511CEA832205A2190090A8E3 /* SplitteryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		511CEA802205A2190090A8E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 511CEA692205A2140090A8E3 /* Splittery */;
+			targetProxy = 511CEA7F2205A2190090A8E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		511CEA712205A2140090A8E3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				511CEA722205A2140090A8E3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				511CEA772205A2180090A8E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		511CEA852205A2190090A8E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		511CEA862205A2190090A8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		511CEA882205A2190090A8E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE9FB34E4G;
+				INFOPLIST_FILE = Splittery/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxibystro.Splittery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		511CEA892205A2190090A8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE9FB34E4G;
+				INFOPLIST_FILE = Splittery/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxibystro.Splittery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		511CEA8B2205A2190090A8E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE9FB34E4G;
+				INFOPLIST_FILE = SplitteryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxibystro.SplitteryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splittery.app/Splittery";
+			};
+			name = Debug;
+		};
+		511CEA8C2205A2190090A8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE9FB34E4G;
+				INFOPLIST_FILE = SplitteryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxibystro.SplitteryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splittery.app/Splittery";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		511CEA652205A2140090A8E3 /* Build configuration list for PBXProject "Splittery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				511CEA852205A2190090A8E3 /* Debug */,
+				511CEA862205A2190090A8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		511CEA872205A2190090A8E3 /* Build configuration list for PBXNativeTarget "Splittery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				511CEA882205A2190090A8E3 /* Debug */,
+				511CEA892205A2190090A8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		511CEA8A2205A2190090A8E3 /* Build configuration list for PBXNativeTarget "SplitteryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				511CEA8B2205A2190090A8E3 /* Debug */,
+				511CEA8C2205A2190090A8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 511CEA622205A2140090A8E3 /* Project object */;
+}
