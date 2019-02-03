@@ -39,10 +39,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
         captured = true
         picker.dismiss(animated: true) {
-            self.imageView.image = image
+            BillRecognizer.fixHorizon(image: image, completion: { (fixedImage) in
+                self.imageView.image = fixedImage
+            })
             let strings = BillRecognizer.recognize(image: image)
             let message = strings.reduce("", { return $0 + $1 + "\n" })
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Result", message: message, preferredStyle: .alert)
             self.present(alert, animated: false, completion: nil)
         }
     }
