@@ -13,6 +13,8 @@
 		511CEA752205A2180090A8E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA742205A2180090A8E3 /* Assets.xcassets */; };
 		511CEA782205A2180090A8E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */; };
 		511CEA832205A2190090A8E3 /* SplitteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA822205A2190090A8E3 /* SplitteryTests.swift */; };
+		511CEA8F2205A90F0090A8E3 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511CEA8E2205A90F0090A8E3 /* Vision.framework */; };
+		511CEA91220760680090A8E3 /* BillRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA90220760680090A8E3 /* BillRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		511CEA7E2205A2190090A8E3 /* SplitteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		511CEA822205A2190090A8E3 /* SplitteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitteryTests.swift; sourceTree = "<group>"; };
 		511CEA842205A2190090A8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		511CEA8E2205A90F0090A8E3 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		511CEA90220760680090A8E3 /* BillRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511CEA8F2205A90F0090A8E3 /* Vision.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,7 @@
 				511CEA6C2205A2140090A8E3 /* Splittery */,
 				511CEA812205A2190090A8E3 /* SplitteryTests */,
 				511CEA6B2205A2140090A8E3 /* Products */,
+				511CEA8D2205A90F0090A8E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +89,7 @@
 				511CEA742205A2180090A8E3 /* Assets.xcassets */,
 				511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */,
 				511CEA792205A2180090A8E3 /* Info.plist */,
+				511CEA90220760680090A8E3 /* BillRecognizer.swift */,
 			);
 			path = Splittery;
 			sourceTree = "<group>";
@@ -94,6 +101,14 @@
 				511CEA842205A2190090A8E3 /* Info.plist */,
 			);
 			path = SplitteryTests;
+			sourceTree = "<group>";
+		};
+		511CEA8D2205A90F0090A8E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				511CEA8E2205A90F0090A8E3 /* Vision.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				511CEA702205A2140090A8E3 /* ViewController.swift in Sources */,
+				511CEA91220760680090A8E3 /* BillRecognizer.swift in Sources */,
 				511CEA6E2205A2140090A8E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

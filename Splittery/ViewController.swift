@@ -10,11 +10,42 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var captured = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if captured == false {
+            presentImagePickerController()
+        }
+        super.viewDidAppear(animated)
     }
+    
+    private func presentImagePickerController() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = false
+        picker.delegate = self
+        present(picker, animated: false, completion: nil)
+    }
+}
 
-
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        captured = true
+        picker.dismiss(animated: true) {
+            self.imageView.image = image
+            let strings = BillRecognizer.recognize(image: image)
+            let message = strings.reduce("", { return $0 + $1 + "\n" })
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
 }
 
