@@ -41,11 +41,18 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         picker.dismiss(animated: true) {
             BillRecognizer.fixHorizon(image: image, completion: { (fixedImage) in
                 self.imageView.image = fixedImage
+                self.findText(image: fixedImage ?? image)
             })
             let strings = BillRecognizer.recognize(image: image)
             let message = strings.reduce("", { return $0 + $1 + "\n" })
             let alert = UIAlertController(title: "Result", message: message, preferredStyle: .alert)
             self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    func findText(image: UIImage) {
+        BillRecognizer.findText(image: image) { (img) in
+            
         }
     }
     

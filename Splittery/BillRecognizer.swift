@@ -29,6 +29,19 @@ class BillRecognizer {
         try? requestHandler.perform([request])
     }
     
+    static func findText(image: UIImage, completion: @escaping ((UIImage?) -> Void)) {
+        let request = VNDetectTextRectanglesRequest { (request, error) in
+            guard let observations = request.results as? [VNTextObservation] else {
+                completion(nil)
+                return
+            }
+            
+            completion(nil)
+        }
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+        try? requestHandler.perform([request])
+    }
+    
 }
 
 private extension UIImage {
