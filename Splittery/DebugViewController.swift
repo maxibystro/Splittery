@@ -8,17 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DebugViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    
-    var captured = false
+    @IBOutlet weak var rotationIconView: UIImageView!
     
     override func viewDidAppear(_ animated: Bool) {
-        if captured == false {
+        if imageView.image == nil {
             presentImagePickerController()
         }
         super.viewDidAppear(animated)
+    }
+    
+    @IBAction func onScanButton(_ sender: Any) {
+        presentImagePickerController()
     }
     
     private func presentImagePickerController() {
@@ -30,23 +33,26 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension DebugViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else {
             print("No image found")
             return
         }
-        captured = true
+        imageView.image = image
+        rotationIconView.tintColor = .gray
         picker.dismiss(animated: true) {
             BillRecognizer.fixHorizon(image: image, completion: { (fixedImage) in
-                self.imageView.image = fixedImage
+                if let fixedImage = fixedImage {
+                    self.rotationIconView.tintColor = .green
+                    self.imageView.image = fixedImage
+                } else {
+                    self.rotationIconView.tintColor = .red
+                }
                 self.findText(image: fixedImage ?? image)
             })
             let strings = BillRecognizer.recognize(image: image)
-            let message = strings.reduce("", { return $0 + $1 + "\n" })
-            let alert = UIAlertController(title: "Result", message: message, preferredStyle: .alert)
-            self.present(alert, animated: false, completion: nil)
         }
     }
     
