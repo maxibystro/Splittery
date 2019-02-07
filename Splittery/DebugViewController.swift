@@ -31,6 +31,28 @@ class DebugViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: false, completion: nil)
     }
+    
+    private func processImage(_ image: UIImage) {
+        imageView.image = image
+        rotationIconView.tintColor = .gray
+        BillRecognizer.fixHorizon(image: image, completion: { (fixedImage) in
+            if let fixedImage = fixedImage {
+                self.rotationIconView.tintColor = .green
+                self.imageView.image = fixedImage
+            } else {
+                self.rotationIconView.tintColor = .red
+            }
+            self.recognizeTextRects(image: fixedImage ?? image)
+        })
+    }
+    
+    private func recognizeTextRects(image: UIImage) {
+        BillRecognizer.findText(image: image) { textObservations in
+            if let textObservations = textObservations {
+                self.imageView.image = image.draw(textObservations: textObservations)
+            }
+        }
+    }
 }
 
 extension DebugViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -40,27 +62,7 @@ extension DebugViewController: UIImagePickerControllerDelegate, UINavigationCont
             print("No image found")
             return
         }
-        imageView.image = image
-        rotationIconView.tintColor = .gray
-        picker.dismiss(animated: true) {
-            BillRecognizer.fixHorizon(image: image, completion: { (fixedImage) in
-                if let fixedImage = fixedImage {
-                    self.rotationIconView.tintColor = .green
-                    self.imageView.image = fixedImage
-                } else {
-                    self.rotationIconView.tintColor = .red
-                }
-                self.findText(image: fixedImage ?? image)
-            })
-            let strings = BillRecognizer.recognize(image: image)
-        }
+        processImage(image.fixOrientation())
+        picker.dismiss(animated: true)
     }
-    
-    func findText(image: UIImage) {
-        BillRecognizer.findText(image: image) { (img) in
-            
-        }
-    }
-    
 }
-

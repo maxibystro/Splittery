@@ -12,9 +12,11 @@
 		511CEA732205A2140090A8E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA712205A2140090A8E3 /* Main.storyboard */; };
 		511CEA752205A2180090A8E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA742205A2180090A8E3 /* Assets.xcassets */; };
 		511CEA782205A2180090A8E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511CEA762205A2180090A8E3 /* LaunchScreen.storyboard */; };
-		511CEA832205A2190090A8E3 /* SplitteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA822205A2190090A8E3 /* SplitteryTests.swift */; };
 		511CEA8F2205A90F0090A8E3 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511CEA8E2205A90F0090A8E3 /* Vision.framework */; };
 		511CEA91220760680090A8E3 /* BillRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA90220760680090A8E3 /* BillRecognizer.swift */; };
+		511CEA95220CD8D70090A8E3 /* SplitteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA822205A2190090A8E3 /* SplitteryTests.swift */; };
+		511CEA97220D50080090A8E3 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA96220D50080090A8E3 /* UIImage+Rotation.swift */; };
+		511CEA9A220ED5A40090A8E3 /* UIImage+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511CEA99220ED5A40090A8E3 /* UIImage+Drawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		511CEA842205A2190090A8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		511CEA8E2205A90F0090A8E3 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		511CEA90220760680090A8E3 /* BillRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRecognizer.swift; sourceTree = "<group>"; };
+		511CEA96220D50080090A8E3 /* UIImage+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
+		511CEA99220ED5A40090A8E3 /* UIImage+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Drawing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		511CEA6C2205A2140090A8E3 /* Splittery */ = {
 			isa = PBXGroup;
 			children = (
+				511CEA98220ED5300090A8E3 /* Categories */,
 				511CEA6D2205A2140090A8E3 /* AppDelegate.swift */,
 				511CEA6F2205A2140090A8E3 /* DebugViewController.swift */,
 				511CEA712205A2140090A8E3 /* Main.storyboard */,
@@ -109,6 +114,15 @@
 				511CEA8E2205A90F0090A8E3 /* Vision.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		511CEA98220ED5300090A8E3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				511CEA96220D50080090A8E3 /* UIImage+Rotation.swift */,
+				511CEA99220ED5A40090A8E3 /* UIImage+Drawing.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511CEA97220D50080090A8E3 /* UIImage+Rotation.swift in Sources */,
+				511CEA9A220ED5A40090A8E3 /* UIImage+Drawing.swift in Sources */,
 				511CEA702205A2140090A8E3 /* DebugViewController.swift in Sources */,
 				511CEA91220760680090A8E3 /* BillRecognizer.swift in Sources */,
 				511CEA6E2205A2140090A8E3 /* AppDelegate.swift in Sources */,
@@ -222,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				511CEA832205A2190090A8E3 /* SplitteryTests.swift in Sources */,
+				511CEA95220CD8D70090A8E3 /* SplitteryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
