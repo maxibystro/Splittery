@@ -8,6 +8,37 @@
 
 import UIKit
 
+//private class RecognitionInfo {
+//
+//    enum Result {
+//        case none
+//        case success
+//        case fail
+//    }
+//
+//    private (set) var firstRotationResult: Result = .none
+//    private (set) var firstTextRecognition: Result = .none
+//    private (set) var secondRotationResult: Result = .none
+//    private (set) var secondTextRecognition: Result = .none
+//
+//    func reset() {
+//        firstRotationResult = .none
+//        firstTextRecognition = .none
+//        secondRotationResult = .none
+//        secondTextRecognition = .none
+//    }
+//
+//    func firstRotationCompleted(success: Bool) {
+//        guard firstRotationResult == .none else { fatalError() }
+//        firstRotationResult = success ? .success : .fail
+//    }
+//
+//    func firstTextRecognitionCompleted(success: Bool) {
+//        guard firstRotationResult != .none else { fatalError() }
+//        firstTextRecognition = success ? .success : .fail
+//    }
+//}
+
 class DebugViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -42,13 +73,20 @@ class DebugViewController: UIViewController {
             } else {
                 self.rotationIconView.tintColor = .red
             }
-            self.recognizeTextRects(image: fixedImage ?? image)
+            self.recognizeTextRects(image: fixedImage ?? image, rotationFailed: fixedImage == nil)
         })
     }
     
-    private func recognizeTextRects(image: UIImage) {
+    private func recognizeTextRects(image: UIImage, rotationFailed: Bool) {
         BillRecognizer.findText(image: image) { textObservations in
             if let textObservations = textObservations {
+                if rotationFailed {
+                    let fixedImage = BillRecognizer.fixHorizon(image: image, basedOnTextObservations: textObservations)
+                    self.imageView.image = fixedImage
+                    self.recognizeTextRects(image: fixedImage, rotationFailed: false)
+                } else {
+                    self.imageView.image = image.draw(textObservations: textObservations)
+                }
                 self.imageView.image = image.draw(textObservations: textObservations)
             }
         }

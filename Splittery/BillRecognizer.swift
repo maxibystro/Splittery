@@ -36,6 +36,21 @@ class BillRecognizer {
         }
     }
     
+    static func fixHorizon(image: UIImage, basedOnTextObservations observations: [VNTextObservation]) -> UIImage {
+        guard observations.count > 0 else { return image }
+        var sumLength: CGFloat = 0
+        var sumAngle: CGFloat = 0
+        observations.forEach({ (observation) in
+            let left = observation.bottomLeft
+            let right = observation.bottomRight
+            let length = hypot(left.x - right.x, left.y - right.y);
+            sumLength += CGFloat(length)
+            let angle = atan2(right.y - left.y, right.x - left.x)
+            sumAngle += angle * length
+        })
+        return image.rotate(radians: sumAngle / sumLength)
+    }
+    
     static func findText(image: UIImage, completion: @escaping (([VNTextObservation]?) -> Void)) {
         let globalQueqeCompletion: (([VNTextObservation]?) -> Void) = { observations in
             DispatchQueue.main.async {
