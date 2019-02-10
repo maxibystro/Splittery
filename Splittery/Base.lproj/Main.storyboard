@@ -37,16 +37,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evS-wF-wZU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rotation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-He-Gwi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rotation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-He-Gwi" userLabel="First Rotation Icon View">
                                 <rect key="frame" x="8" y="72" width="33" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="Otm-Zz-JdE"/>
                                     <constraint firstAttribute="height" constant="34" id="SVZ-0f-0qw"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rotation" translatesAutoresizingMaskIntoConstraints="NO" id="REx-or-67J" userLabel="Second Rotation Icon View">
+                                <rect key="frame" x="49" y="72" width="33" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Ogh-8s-wKF"/>
+                                    <constraint firstAttribute="width" constant="33" id="r0J-mQ-MsB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="REx-or-67J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="XZW-14-Aea"/>
+                            <constraint firstItem="REx-or-67J" firstAttribute="leading" secondItem="Tjy-He-Gwi" secondAttribute="trailing" constant="8" id="XuR-7f-epy"/>
                             <constraint firstItem="evS-wF-wZU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b07-8r-jfx"/>
                             <constraint firstItem="Tjy-He-Gwi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="bRC-1m-9Cf"/>
                             <constraint firstItem="evS-wF-wZU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gxq-wH-7LU"/>
@@ -66,8 +75,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="firstRotationIcon" destination="Tjy-He-Gwi" id="5eJ-ha-R1e"/>
                         <outlet property="imageView" destination="evS-wF-wZU" id="edb-3N-oap"/>
-                        <outlet property="rotationIconView" destination="Tjy-He-Gwi" id="dYR-89-gct"/>
+                        <outlet property="secondRotationIcon" destination="REx-or-67J" id="jaU-hH-HJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

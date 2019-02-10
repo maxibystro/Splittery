@@ -17,6 +17,7 @@ extension UIImage {
     }
     
     func draw(boundingRect: CGRect, textObservations: [VNTextObservation]) -> UIImage {
+        guard textObservations.count > 0 else { return self }
         UIGraphicsBeginImageContextWithOptions(self.size, false, 1)
         let context = UIGraphicsGetCurrentContext()!
         context.translateBy(x: 0, y: self.size.height)

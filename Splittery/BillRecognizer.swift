@@ -10,64 +10,124 @@ import Foundation
 import UIKit
 import Vision
 
+protocol BillRecognizerDelegate: class {
+    func billRecognizer(_ recognizer: BillRecognizer, didCompleteFirstRotationWithSuccess success: Bool, rotatedImage: UIImage?)
+    func billRecognizer(_ recognizer: BillRecognizer, didCompleteFirstTextRecognitionWithObservations observations: [VNTextObservation], debugImage: UIImage?)
+    func billRecognizer(_ recognizer: BillRecognizer, didCompleteSecondRotationWithSuccess success: Bool, rotatedImage: UIImage?)
+    func billRecognizer(_ recognizer: BillRecognizer, didCompleteSecondTextRecognitionWithObservations observations: [VNTextObservation], debugImage: UIImage?)
+}
+
 class BillRecognizer {
     
-    static func recognize(image: UIImage) -> [String] {
-        return []
+    weak var delegate: BillRecognizerDelegate?
+    var debug = false
+    
+    var isRecognizing: Bool {
+        return completion != nil
     }
     
-    static func fixHorizon(image: UIImage, completion: @escaping ((UIImage?) -> Void)) {
-        let globalQueqeCompletion: ((UIImage?) -> Void) = { image in
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
+    private var completion: (([String]) -> Void)?
+    
+    func recognize(image: UIImage, completion: @escaping ([String]) -> Void) {
+        guard !isRecognizing else { fatalError("BillRecognizer is busy") }
+        self.completion = completion
         DispatchQueue.global().async {
-            let request = VNDetectHorizonRequest { (request, error) in
-                guard let observations = request.results as? [VNHorizonObservation], let observation = observations.first else {
-                    globalQueqeCompletion(nil)
-                    return
-                }
-                let result = image.rotate(radians: -observation.angle)
-                globalQueqeCompletion(result)
-            }
-            let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-            try? requestHandler.perform([request])
+            self.makeFirstRotation(image: image)
         }
     }
     
-    static func fixHorizon(image: UIImage, basedOnTextObservations observations: [VNTextObservation]) -> UIImage {
-        guard observations.count > 0 else { return image }
+    private func makeFirstRotation(image: UIImage) {
+        let fixedImage = BillRecognizer.fixHorizon(image: image)
+        let success = fixedImage != nil
+        DispatchQueue.main.async {
+            self.delegate?.billRecognizer(self, didCompleteFirstRotationWithSuccess: success, rotatedImage: fixedImage)
+        }
+        makeFirstTextRecognition(image: fixedImage ?? image, rotationSucceeded: success)
+    }
+    
+    private func makeFirstTextRecognition(image: UIImage, rotationSucceeded: Bool) {
+        let observations = BillRecognizer.findText(image: image)
+        DispatchQueue.main.async {
+            let debugImage = self.debug ? image.draw(textObservations: observations) : nil
+            self.delegate?.billRecognizer(self, didCompleteFirstTextRecognitionWithObservations: observations, debugImage: debugImage)
+        }
+        if rotationSucceeded {
+            recognizeTextObservations(image: image, observations: observations)
+        } else {
+            makeSecongRotation(image: image, observations: observations)
+        }
+    }
+    
+    private func makeSecongRotation(image: UIImage, observations: [VNTextObservation]) {
+        let fixedImage = BillRecognizer.fixHorizon(image: image, basedOnTextObservations: observations)
+        let success = fixedImage != nil
+        DispatchQueue.main.async {
+            self.delegate?.billRecognizer(self, didCompleteSecondRotationWithSuccess: success, rotatedImage: fixedImage)
+        }
+        makeSecondTextRecognition(image: fixedImage ?? image)
+    }
+    
+    private func makeSecondTextRecognition(image: UIImage) {
+        let observations = BillRecognizer.findText(image: image)
+        DispatchQueue.main.async {
+            let debugImage = self.debug ? image.draw(textObservations: observations) : nil
+            self.delegate?.billRecognizer(self, didCompleteSecondTextRecognitionWithObservations: observations, debugImage: debugImage)
+        }
+        recognizeTextObservations(image: image, observations: observations)
+    }
+    
+    private func recognizeTextObservations(image: UIImage, observations: [VNTextObservation]) {
+        DispatchQueue.main.async {
+            let result = [String]()
+            self.completion?(result)
+            self.completion = nil
+        }
+    }
+    
+    // MARK - Pure functions
+    
+    static func fixHorizon(image: UIImage) -> UIImage? {
+        var result: UIImage?
+        let request = VNDetectHorizonRequest { (request, error) in
+            guard let observations = request.results as? [VNHorizonObservation], let observation = observations.first else {
+                return
+            }
+            result = image.rotate(radians: -observation.angle)
+        }
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+        try? requestHandler.perform([request])
+        return result
+    }
+    
+    static func fixHorizon(image: UIImage, basedOnTextObservations observations: [VNTextObservation]) -> UIImage? {
         var sumLength: CGFloat = 0
         var sumAngle: CGFloat = 0
         observations.forEach({ (observation) in
-            let left = observation.bottomLeft
-            let right = observation.bottomRight
-            let length = hypot(left.x - right.x, left.y - right.y);
+            let topLeft = observation.topLeft
+            let bottomLeft = observation.bottomLeft
+            let bottomRight = observation.bottomRight
+            let height = hypot(bottomLeft.x - topLeft.x, bottomLeft.y - topLeft.y)
+            let length = hypot(bottomLeft.x - bottomRight.x, bottomLeft.y - bottomRight.y)
+            guard length >= height else { return }
             sumLength += CGFloat(length)
-            let angle = atan2(right.y - left.y, right.x - left.x)
+            let angle = atan2(bottomRight.y - bottomLeft.y, bottomRight.x - bottomLeft.x)
             sumAngle += angle * length
         })
+        guard sumLength > 0 else { return nil }
         return image.rotate(radians: sumAngle / sumLength)
     }
     
-    static func findText(image: UIImage, completion: @escaping (([VNTextObservation]?) -> Void)) {
-        let globalQueqeCompletion: (([VNTextObservation]?) -> Void) = { observations in
-            DispatchQueue.main.async {
-                completion(observations)
+    static func findText(image: UIImage) -> [VNTextObservation] {
+        var result = [VNTextObservation]()
+        let request = VNDetectTextRectanglesRequest { (request, error) in
+            guard let observations = request.results as? [VNTextObservation] else {
+                return
             }
+            result = observations
         }
-        DispatchQueue.global().async {
-            let request = VNDetectTextRectanglesRequest { (request, error) in
-                guard let observations = request.results as? [VNTextObservation] else {
-                    globalQueqeCompletion(nil)
-                    return
-                }
-                globalQueqeCompletion(observations)
-            }
-            let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-            try? requestHandler.perform([request])
-        }
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+        try? requestHandler.perform([request])
+        return result
     }
     
 }
