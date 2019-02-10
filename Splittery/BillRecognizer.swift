@@ -84,7 +84,7 @@ class BillRecognizer {
         }
     }
     
-    // MARK - Pure functions
+    // MARK: - Pure functions
     
     static func fixHorizon(image: UIImage) -> UIImage? {
         var result: UIImage?
@@ -102,13 +102,12 @@ class BillRecognizer {
     static func fixHorizon(image: UIImage, basedOnTextObservations observations: [VNTextObservation]) -> UIImage? {
         var sumLength: CGFloat = 0
         var sumAngle: CGFloat = 0
+        let imageWidth = image.size.width
+        let imageHeight = image.size.height
         observations.forEach({ (observation) in
-            let topLeft = observation.topLeft
-            let bottomLeft = observation.bottomLeft
-            let bottomRight = observation.bottomRight
-            let height = hypot(bottomLeft.x - topLeft.x, bottomLeft.y - topLeft.y)
+            let bottomLeft = observation.bottomLeft.toAbsoluteCoordinates(width: imageWidth, height: imageHeight)
+            let bottomRight = observation.bottomRight.toAbsoluteCoordinates(width: imageWidth, height: imageHeight)
             let length = hypot(bottomLeft.x - bottomRight.x, bottomLeft.y - bottomRight.y)
-            guard length >= height else { return }
             sumLength += CGFloat(length)
             let angle = atan2(bottomRight.y - bottomLeft.y, bottomRight.x - bottomLeft.x)
             sumAngle += angle * length
@@ -130,4 +129,11 @@ class BillRecognizer {
         return result
     }
     
+}
+
+private extension CGPoint {
+    
+    func toAbsoluteCoordinates(width: CGFloat, height: CGFloat) -> CGPoint {
+        return CGPoint(x: x * width, y: y * height)
+    }
 }
